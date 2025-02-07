@@ -11,6 +11,7 @@ import com.keiken.test.service.NoteService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://elmourtajisalmane.sandsculptor.keiken-digital.io:5173")
 @RequestMapping("/api/notebooks")
 public class NotebookController {
 
@@ -25,6 +26,7 @@ public class NotebookController {
     @GetMapping
     public ResponseEntity<List<Notebook>> getAllNotebooks() {
         List<Notebook> notebooks = notebookService.getAllNotebooks();
+        System.out.println("GET ACCESSED");
         return ResponseEntity.ok(notebooks);
     }
 

@@ -6,6 +6,7 @@ import { NoteEditor } from './NoteEditor';
 export function NoteList({
   selectedNotebook,
   notes,
+  setNotes,
   editingNote,
   noteTitle,
   noteContent,
@@ -17,6 +18,12 @@ export function NoteList({
   onSaveNote,
   onCancelEdit
 }) {
+
+  const sortAlphab = () => {
+    setNotes(notes.sort((a, b) => a.title.localeCompare(b.title)));
+    console.log(notes)
+  }
+
   return (
     <div className="md:col-span-9">
       {selectedNotebook ? (
@@ -25,6 +32,12 @@ export function NoteList({
             <h2 className="text-2xl font-semibold text-gray-800">
               {selectedNotebook.name}
             </h2>
+            <button
+              onClick={sortAlphab}
+              className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center gap-2"
+            >
+              Sort Alphab
+            </button>
             <button
               onClick={onAddNote}
               className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center gap-2"

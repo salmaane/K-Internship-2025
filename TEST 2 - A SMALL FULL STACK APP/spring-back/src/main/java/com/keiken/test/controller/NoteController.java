@@ -9,6 +9,7 @@ import com.keiken.test.service.NoteService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://elmourtajisalmane.sandsculptor.keiken-digital.io:5173")
 @RequestMapping("/api/notes")
 public class NoteController {
 

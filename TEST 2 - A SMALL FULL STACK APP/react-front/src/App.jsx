@@ -43,8 +43,9 @@ function App() {
   };
 
   const handleDeleteNotebook = async (id) => {
-    api.deleteNotebook(id);
-    loadNotebooks();
+    api.deleteNotebook(id).then(res => {
+      loadNotebooks();
+    })
     if (selectedNotebook?.id === id) {
       setSelectedNotebook(null);
       setNotes([]);
@@ -121,6 +122,7 @@ function App() {
           <NoteList
             selectedNotebook={selectedNotebook}
             notes={notes}
+            setNotes={setNotes}
             editingNote={editingNote}
             noteTitle={noteTitle}
             noteContent={noteContent}
